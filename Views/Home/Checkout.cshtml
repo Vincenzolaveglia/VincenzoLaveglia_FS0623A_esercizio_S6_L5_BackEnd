@@ -1,0 +1,45 @@
+﻿@model Gestionale_Albergo.Models.Checkout
+
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<div class="container">
+    <h2>Checkout Cliente</h2>
+
+    <dl class="dl-horizontal">
+        <dt>Codice Fiscale Cliente:</dt>
+        <dd>@Model.NomeTitolare</dd>
+
+        <dt>Numero Stanza:</dt>
+        <dd>@Model.NumeroStanza</dd>
+
+        <dt>Data Check-In:</dt>
+        <dd>@Model.DataCheckIn.ToShortDateString()</dd>
+
+        <dt>Data Check-Out:</dt>
+        <dd>@Model.DataCheckOut.ToShortDateString()</dd>
+
+        <dt>Tariffa Applicata:</dt>
+        <dd>@Model.TariffaApplicata.ToString("C")</dd>
+
+        <dt>Caparra Confirmatoria:</dt>
+        <dd>@Model.CaparraConfirmatoria.ToString("C")</dd>
+
+        <dt>Servizi Aggiuntivi acquistati:</dt>
+        <dd>
+            <ul class="m-0 p-0">
+                @foreach (var servizio in Model.ServiziAggiuntivi)
+                {
+                    <li class="m-0 p-0 list-unstyled">@servizio.ServiziAggiuntivi Tipo: @servizio.Servizio , In Data: @servizio.DataServizio , Quantità: @servizio.Quantita , Prezzo: @servizio.Prezzo €</li>
+                }
+            </ul>
+        </dd>
+
+        <dt>Importo da Pagare (Tariffa - Caparra + Servizi Aggiuntivi):</dt>
+        <dd>@Model.ImportoDaSaldare.ToString("C")</dd>
+    </dl>
+
+    <button class="mb-3 btn btn-default btn-warning">Stampa Fattura</button>
+</div>
+

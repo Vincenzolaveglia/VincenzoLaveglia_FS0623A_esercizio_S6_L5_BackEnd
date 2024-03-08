@@ -1,0 +1,66 @@
+﻿@model Gestionale_Albergo.Models.ServizioAggiuntivo
+
+@{
+    ViewBag.Title = "DettaglioServizioAggiuntivo";
+}
+
+<h2>DettaglioServizioAggiuntivo</h2>
+
+<div>
+    <h4>ServizioAggiuntivo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdServizio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdServizio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Servizio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Servizio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataServizio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataServizio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prezzo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prezzo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPrenotazione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPrenotazione)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,52 @@
+﻿@model Gestionale_Albergo.Models.Cliente
+
+@{
+    ViewBag.Title = "DettagliCliente";
+}
+
+<div class="container body-content">
+    <h2 class="text-center">Dettaglio Cliente</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id Cliente</th>
+                <th>Codice Fiscale</th>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Città</th>
+                <th>Provincia</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Cellulare</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.IdCliente</td>
+                <td>@Model.CodiceFiscale</td>
+                <td>@Model.Cognome</td>
+                <td>@Model.Nome</td>
+                <td>@Model.Citta</td>
+                <td>@Model.Provincia</td>
+                <td>@Model.Email</td>
+                <td>@Model.Telefono</td>
+                <td>@Model.Cellulare</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center mt-3 mb-3">
+        <div class="d-flex justify-content-center">
+            <div style="margin-right: 10px">
+                @Html.ActionLink("Aggiungi Prenotazione", "CreaPrenotazione", "Prenotazione", new { IdCliente = Model.IdCliente, CodiceFiscale = Model.CodiceFiscale }, new { @class = "btn btn-success btn-sm" })
+            </div>
+            <div style="margin-right: 10px">
+                @Html.ActionLink("Modifica Cliente", "ModificaCliente", "Cliente", new { IdCliente = Model.IdCliente }, new { @class = "btn btn-warning btn-sm" })
+            </div>
+            <div>
+                @Html.ActionLink("Elimina Cliente", "EliminaCliente", "Cliente", new { IdCliente = Model.IdCliente }, new { @class = "btn btn-danger btn-sm" })
+            </div>
+        </div>
+    </div>
+</div>
+

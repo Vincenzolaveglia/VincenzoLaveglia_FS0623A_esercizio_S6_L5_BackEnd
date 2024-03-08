@@ -1,0 +1,63 @@
+﻿@model Gestionale_Albergo.Models.Prenotazione
+
+@{
+    ViewBag.Title = "DettagliPrenotazione";
+}
+
+<div style="overflow-x: auto; overflow-y: auto">
+    <h2 class="text-center">Dettagli Prenotazione</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID Prenotazione</th>
+                <th>Codice Fiscale</th>
+                <th>Numero Camera</th>
+                <th>Data Prenotazione</th>
+                <th>Anno</th>
+                <th>Data Inizio Soggiorno</th>
+                <th>Data Fine Soggiorno</th>
+                <th>Caparra Confirmatoria</th>
+                <th>Tariffa Applicata</th>
+                <th>Mezza Pensione</th>
+                <th>Pensione Completa</th>
+                <th>Pernottamento Prima Colazione</th>
+                <th>Servizi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.IdPrenotazione</td>
+                <td>@Model.CodiceFiscale</td>
+                <td>@Model.NumeroCamera</td>
+                <td>@Model.DataPrenotazione.ToString("dd/MM/yyyy")</td>
+                <td>@Model.Anno</td>
+                <td>@Model.DataInizioSoggiorno.ToString("dd/MM/yyyy")</td>
+                <td>@Model.DataFineSoggiorno.ToString("dd/MM/yyyy")</td>
+                <td>@Model.CaparraConfirmatoria</td>
+                <td>@Model.TariffaApplicata</td>
+                <td>@(Model.MezzaPensione ? "Sì" : "No")</td>
+                <td>@(Model.PensioneCompleta ? "Sì" : "No")</td>
+                <td>@(Model.PernottamentoPrimaColazione ? "Sì" : "No")</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center mt-3 mb-3">
+        <div class="d-flex justify-content-center">
+            <div style="margin-right: 10px">
+                @Html.ActionLink("Aggiungi Servizio", "CreaServizioAggiuntivo", "ServizioAggiuntivo", new { IdPrenotazione = Model.IdPrenotazione, CodiceFiscale = Model.CodiceFiscale }, new { @class = "btn btn-success btn-sm" })
+            </div>
+            <div style="margin-right: 10px">
+                @Html.ActionLink("Visualizza Servizi Aggiuntivi", "ListaServizioAggiuntivo", "ServizioAggiuntivo", new { IdPrenotazione = Model.IdPrenotazione }, new { @class = "btn btn-info btn-sm" })
+            </div>
+            <div style="margin-right: 10px">
+                <a href="@Url.Action("Checkout", "Home", new { IdPrenotazione = Model.IdPrenotazione })" class="btn btn-primary">Checkout Cliente</a>
+            </div>
+            <div>
+                @Html.ActionLink("Elimina Prenotazione", "EliminaPrenotazione", "Prenotazione", new { IdCliente = Model.IdPrenotazione }, new { @class = "btn btn-danger btn-sm" })
+            </div>
+        </div>
+    </div>
+</div>
+

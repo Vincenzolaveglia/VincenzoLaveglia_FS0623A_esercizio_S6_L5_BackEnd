@@ -1,0 +1,54 @@
+﻿@model Gestionale_Albergo.Models.Utente
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container body-content">
+    @using (Html.BeginForm())
+    {
+        <div class="card mt-5 mb-5" style="border-radius: 1rem;">
+            <div class="row g-0">
+                <div class="col-md-6 col-lg-5 d-flex align-items-center justify-content-center" style="background-color: #041527;">
+                    <img src="~/Content/imgs/logo.jpeg" alt="login form" class="img-fluid" />
+                </div>
+                <div class="col-md-6 col-lg-7" style="border-left: 10px solid #30566D ">
+                    <div class="card-body p-4 p-lg-5 text-black">
+                        <div class="d-flex align-items-center mb-3 pb-1">
+                            <div class="d-flex flex-column">
+                                <span class="h1 fw-bold mb-0">Platinum Palace Hotel</span>
+                                <span class="h3 fw-bold mb-0 text-danger">Login</span>
+                            </div>
+                        </div>
+                        <h5 class="fw-normal mb-3" style="letter-spacing: 1px;">Entra con il tuo account</h5>
+                        <div id="inputlogin" class="form-outline mb-4">
+                            <div class="mb-3">
+                                @Html.TextBoxFor(model => model.Username, new { @class = "form-control form-control-lg", placeholder = "Username" })
+                                @Html.ValidationMessageFor(model => model.Username, "", new { @style = "color: red" })
+                            </div>
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-lg", placeholder = "Password" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @style = "color: red" })
+                        </div>
+
+                        @if (ViewBag.AuthError != null)
+                        {
+                            <div class="alert alert-danger">
+                                @ViewBag.AuthError
+                            </div>
+                        }
+
+                        <div class="pt-1 mb-4 d-flex align-items-center">
+                            <input type="submit" value="Login" class="btn btn-danger"/>
+                        </div>
+
+                        <a class="small text-muted" href="#">Password dimenticata?</a> 
+                        <br />
+                        <a class="small text-muted" href="#">Termini di utilizzo</a>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

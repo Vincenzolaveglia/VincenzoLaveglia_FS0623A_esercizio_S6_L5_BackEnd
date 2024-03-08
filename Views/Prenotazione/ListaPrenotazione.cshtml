@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Gestionale_Albergo.Models.Prenotazione>
+
+@{
+    ViewBag.Title = "ListaPrenotazione";
+}
+
+<div>
+    <h2 class="text-center">Lista delle Prenotazioni</h2>
+    <div class="text-center mt-3 mb-3">
+            <a href="@Url.Action("ListaCliente", "Cliente")" class="btn btn-primary">Aggiungi Prenotazione</a>
+    </div>
+    <div style="overflow-x: auto; overflow-y: auto">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>IdPrenotazione</th>
+                    <th>CodiceFiscale</th>
+                    <th>NumeroCamera</th>
+                    <th>DataPrenotazione</th>
+                    <th>Anno</th>
+                    <th>DataInizioSoggiorno</th>
+                    <th>DataFineSoggiorno</th>
+                    <th>CaparraConfirmatoria</th>
+                    <th>TariffaApplicata</th>
+                    <th>MezzaPensione</th>
+                    <th>PensioneCompleta</th>
+                    <th>Pern.PrimaColazione</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdPrenotazione</td>
+                        <td>@item.CodiceFiscale</td>
+                        <td>@item.NumeroCamera</td>
+                        <td>@item.DataPrenotazione.ToString("dd/MM/yyyy")</td>
+                        <td>@item.Anno</td>
+                        <td>@item.DataInizioSoggiorno.ToString("dd/MM/yyyy")</td>
+                        <td>@item.DataFineSoggiorno.ToString("dd/MM/yyyy")</td>
+                        <td>@item.CaparraConfirmatoria</td>
+                        <td>@item.TariffaApplicata</td>
+                        <td>@(item.MezzaPensione ? "Sì" : "No")</td>
+                        <td>@(item.PensioneCompleta ? "Sì" : "No")</td>
+                        <td>@(item.PernottamentoPrimaColazione ? "Sì" : "No")</td>
+                        <td class="d-flex">
+                            @Html.ActionLink("Dettagli", "DettagliPrenotazione", new { IdPrenotazione = item.IdPrenotazione, CodiceFiscale = item.CodiceFiscale }, new { @class = "btn btn-info btn-sm mx-1" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
