@@ -1,0 +1,10 @@
+USE [Gestionale_Albergo]
+GO
+
+INSERT INTO [dbo].[Utenti]
+           ([Username]
+           ,[Password])
+     VALUES
+           ('Admin', 'Admin)
+
+
